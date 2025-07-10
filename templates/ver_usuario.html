@@ -1,0 +1,6 @@
+<h2>Usuario: {{ user.name }}</h2>
+<p>Email: {{ user.email }}</p>
+<a href="/editar/{{ user.id }}">Editar</a> |
+<a href="/eliminar/{{ user.id }}" onclick="return confirm('¿Eliminar usuario?')">Eliminar</a>
+<br><br>
+<a href="/consultar">Volver a lista</a>

@@ -1,0 +1,24 @@
+<h2>Consultar Usuarios</h2>
+
+<form action="/consultar" method="get">
+    <input type="text" name="nombre" placeholder="Buscar por nombre" required>
+    <button type="submit">Buscar</button>
+</form>
+
+<p>O ver todos los usuarios:</p>
+<a href="/consultar?todos=true">Mostrar todos</a>
+
+<hr>
+
+{% if users %}
+    <h3>Resultados:</h3>
+    <ul>
+    {% for user in users %}
+        <li>{{ user.name }} ({{ user.email }})</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron usuarios.</p>
+{% endif %}
+
+<a href="/">Volver</a>

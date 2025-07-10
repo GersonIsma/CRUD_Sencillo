@@ -1,0 +1,27 @@
+<h1>Bienvenido</h1>
+
+<ul>
+    <li><a href="/agregar">➕ Agregar usuario</a></li>
+    <li><a href="/consultar">🔍 Consultar</a></li>
+</ul>
+
+<hr>
+
+<h2>Editar o Eliminar Usuario</h2>
+<form method="get" action="/">
+    <input type="text" name="nombre" placeholder="Buscar por nombre" required>
+    <button type="submit">Buscar</button>
+</form>
+
+{% if users %}
+    <hr>
+    <ul>
+    {% for user in users %}
+        <li>
+            {{ user.name }} ({{ user.email }})<br>
+            <a href="/editar/{{ user.id }}">✏️ Editar usuario</a><br>
+            <a href="/eliminar/{{ user.id }}" onclick="return confirm('¿Eliminar este usuario?')">🗑️ Eliminar usuario</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
