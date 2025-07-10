@@ -9,3 +9,4 @@ services:
         fromDatabase:
           name: crud_db     # <- nombre de la base que creaste en Render
           property: connectionString
+    port: 10000
