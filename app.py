@@ -3,7 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
-database_url = os.environ.get('DATABASE_URL', '')  # Obtiene la URL o cadena vacía si no existe
+
+# Obtén la URL y valídala
+database_url = os.environ.get('DATABASE_URL')
+print("DATABASE_URL from env:", database_url)  # Depuración (ver logs en Render)
+
+if not database_url:
+    raise ValueError("No se encontró DATABASE_URL en las variables de entorno.")
 
 # Corrige el formato si es necesario
 if database_url.startswith("postgres://"):
